@@ -1,0 +1,111 @@
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.stats {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.grid-container {
+  width: 700px;
+  height: 700px;
+  border: 5px solid black;
+  margin-bottom: 20px;
+  background-color: black;
+}
+
+.grid-row {
+  display: flex;
+  flex-basis: calc(100% / 10);
+  height: calc(700px / 10);
+  /* flex-basis: calc(100% / 100);
+  height: calc(800px / 100); */
+}
+
+.grid-cell {
+  flex-basis: calc(100% / 10);
+  height: calc(700px / 10);
+  /* flex-basis: calc(100% / 100);
+  height: calc(800px / 100); */
+  border: 1px solid black;
+}
+
+.blank {
+  /* background-color: #f7f7f7; */
+  /* background-color: rgba(30, 128, 0, 0.64); */
+  
+  background-image: url("../src/assets/grass.jpg");
+  background-size: cover;
+  opacity: .8;
+}
+
+.speeder {
+  /* background-color: #99ccff; */
+  background-image: url("../src/assets/nymer.jpg");
+  background-size: cover;
+  opacity: .8;
+  /* background-color: black; */
+}
+
+.lava {
+  /* background-color: #ff1a1a; */
+  background-image: url("../src/assets/messi.jpg");
+  background-size: cover;
+  opacity: .8;
+}
+
+.mud {
+  background-color: #996633;
+  background-image: url("../src/assets/ronaldo.jpg");
+  background-size: cover;
+  opacity: .8;
+}
+
+.player {
+  /* background-color: #ffcc00; */
+  background-image: url("../src/assets/player3.gif");
+  background-size: cover;
+}
+
+.win{
+  /* background-color:lime; */
+  background-image: url("../src/assets/goal.gif");
+  background-size: cover;
+  /* z-index: 5; */
+}
+
+button {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.legend {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+
+}
+
+.legend-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid black;
+}
