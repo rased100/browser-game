@@ -45,14 +45,14 @@
   
   background-image: url("../src/assets/grass.jpg");
   background-size: cover;
-  opacity: .8;
+  /* opacity: .8; */
 }
 
 .speeder {
   /* background-color: #99ccff; */
   background-image: url("../src/assets/nymer.jpg");
   background-size: cover;
-  opacity: .8;
+  /* opacity: .8; */
   /* background-color: black; */
 }
 
@@ -60,14 +60,14 @@
   /* background-color: #ff1a1a; */
   background-image: url("../src/assets/messi.jpg");
   background-size: cover;
-  opacity: .8;
+  /* opacity: .8; */
 }
 
 .mud {
   background-color: #996633;
   background-image: url("../src/assets/ronaldo.jpg");
   background-size: cover;
-  opacity: .8;
+  /* opacity: .8; */
 }
 
 .player {

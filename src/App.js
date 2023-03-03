@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const GRID_SIZE = 10;
-const blank = (GRID_SIZE*GRID_SIZE)*.4;
+const blank = (GRID_SIZE*GRID_SIZE)*.4; // max value = 0.999
 
 const HEALTH_MAP = {
   Blank: 0,
@@ -118,8 +118,15 @@ const GameBoard = () => {
     const randomWinRow = Math.floor(Math.random() * GRID_SIZE);
     console.log('rwr', randomWinRow)
     const randomWinCol = Math.floor(Math.random() * GRID_SIZE);
-    grid[randomWinRow][randomWinCol] = "WIN";
-
+    if(randomWinCol && randomWinRow === 0){
+      grid[GRID_SIZE/2][GRID_SIZE/2] = "WIN"
+    } else if(randomWinCol === 0 && randomWinRow === 1){
+      grid[GRID_SIZE/2][GRID_SIZE/2] = "WIN"
+    } else if(randomWinCol === 1 && randomWinRow === 0){
+      grid[GRID_SIZE/2][GRID_SIZE/2] = "WIN"
+    }else{
+      grid[randomWinRow][randomWinCol] = "WIN";
+    }
     return grid;
   }
 
@@ -136,7 +143,7 @@ const GameBoard = () => {
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     if (win) {
-      alert("GOALLLLLLLLLLLLLLLLL!");
+      // alert("GOALLLLLLLLLLLLLLLLL!");
       setWin(false);
       resetGame();
     }
