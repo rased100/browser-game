@@ -17,7 +17,7 @@ const HEALTH_MAP = {
 };
 
 const MOVES_MAP = {
-  Blank: -1,
+  Blank: 0,
   Speeder: -1,
   Lava: -10,
   Mud: -5,
@@ -68,6 +68,7 @@ const GameBoard = () => {
     const [x, y] = position;
     const cell = grid[x][y];
     const newHealth = health + HEALTH_MAP[cell];
+   
     const newMoves = moves + MOVES_MAP[cell];
 
     if (newHealth <= 0) {
@@ -79,6 +80,7 @@ const GameBoard = () => {
     } else {
       setPlayerPosition(position);
       setHealth(newHealth);
+      // console.log('newHelth', newHealth)
       setMoves(newMoves);
       if (cell === "WIN") {
         setWin(true);
@@ -106,7 +108,7 @@ const GameBoard = () => {
 
     while (blankCount < blank) { // less then (GRID_SIZE * GRID_SIZE)
       const randomRow = Math.floor(Math.random() * GRID_SIZE);
-      console.log('rr',randomRow)
+      console.log('randomRow',randomRow)
       const randomCol = Math.floor(Math.random() * GRID_SIZE);
       if (grid[randomRow][randomCol] !== "Blank") {
         grid[randomRow][randomCol] = "Blank";
@@ -119,11 +121,11 @@ const GameBoard = () => {
     console.log('rwr', randomWinRow)
     const randomWinCol = Math.floor(Math.random() * GRID_SIZE);
     if(randomWinCol && randomWinRow === 0){
-      grid[GRID_SIZE/2][GRID_SIZE/2] = "WIN"
+      grid[GRID_SIZE-1][GRID_SIZE-1] = "WIN"
     } else if(randomWinCol === 0 && randomWinRow === 1){
-      grid[GRID_SIZE/2][GRID_SIZE/2] = "WIN"
+      grid[GRID_SIZE-1][GRID_SIZE-1] = "WIN"
     } else if(randomWinCol === 1 && randomWinRow === 0){
-      grid[GRID_SIZE/2][GRID_SIZE/2] = "WIN"
+      grid[GRID_SIZE-1][GRID_SIZE-1] = "WIN"
     }else{
       grid[randomWinRow][randomWinCol] = "WIN";
     }
@@ -143,7 +145,7 @@ const GameBoard = () => {
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     if (win) {
-      // alert("GOALLLLLLLLLLLLLLLLL!");
+      alert("GOALLLLLLLLLLLLLLLLL!");
       setWin(false);
       resetGame();
     }
